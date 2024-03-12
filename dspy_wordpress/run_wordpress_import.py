@@ -1,4 +1,6 @@
+import logging
 import os
+import sys
 from pathlib import Path
 
 from rag4p.indexing.indexing_service import IndexingService
@@ -18,6 +20,14 @@ if __name__ == '__main__':
     from dotenv import load_dotenv
 
     load_dotenv()
+
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s [%(levelname)s] %(message)s',
+        handlers=[
+            logging.StreamHandler(sys.stdout)
+        ]
+    )
 
     key_loader = KeyLoader()
     access_weaviate = AccessWeaviate(url=key_loader.get_weaviate_url(), access_key=key_loader.get_weaviate_api_key())

@@ -90,15 +90,5 @@ class WeaviateV4RM(dspy.Retrieve):
                 text = chunk.properties[self._weaviate_collection_text_key]
                 passages.append(dotdict({"long_text": text}))
 
-            # results = self._weaviate_client.collections\
-            #     .get(self._weaviate_collection_name, [self._weaviate_collection_text_key])\
-            #     .with_hybrid(query=query)\
-            #     .with_limit(k)\
-            #     .do()
-
-            # results = results["data"]["Get"][self._weaviate_collection_name]
-            # parsed_results = [result[self._weaviate_collection_text_key] for result in results]
-            # passages.extend(dotdict({"long_text": d}) for d in parsed_results)
-
         # return Prediction(passages=passages)
         return passages

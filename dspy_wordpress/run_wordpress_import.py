@@ -43,7 +43,7 @@ if __name__ == '__main__':
     indexing_service = IndexingService(content_store=content_store)
 
     directory = os.getcwd()
-    file_path = Path(os.path.join(directory, "../data", 'two_documents.jsonl'))
+    file_path = Path(os.path.join(directory, "../data", 'all_documents.jsonl'))
     content_reader = WordpressJsonlReader(file=file_path)
 
     indexing_service.index_documents(content_reader=content_reader, splitter=splitter)

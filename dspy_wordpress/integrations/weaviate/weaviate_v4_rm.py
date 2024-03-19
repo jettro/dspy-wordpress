@@ -91,4 +91,5 @@ class WeaviateV4RM(dspy.Retrieve):
                 passages.append(dotdict({"long_text": text}))
 
         # return Prediction(passages=passages)
+        # https://github.com/stanfordnlp/dspy/issues/166
         return passages

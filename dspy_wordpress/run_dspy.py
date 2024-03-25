@@ -91,7 +91,7 @@ if __name__ == '__main__':
     openai_api_key = os.environ.get('OPENAI_API_KEY')
 
     # Setup the minimal components required by DSPy: Language Model and the Retriever.
-    retriever_module = retriever_module("weaviate", openai_api_key)
+    retriever_module = retriever_module("rockset", openai_api_key)
     gpt3_turbo = dspy.OpenAI(model='gpt-3.5-turbo-1106', max_tokens=300, api_key=openai_api_key)
     dspy.settings.configure(lm=gpt3_turbo, rm=retriever_module)
 

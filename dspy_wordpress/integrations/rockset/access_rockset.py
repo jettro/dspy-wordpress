@@ -152,7 +152,7 @@ class AccessRockset:
             )
             logger_rockset.info(f"Query lambda `{query_lambda_name}` created!\n")
         except ApiException as e:
-            logger_rockset.info(f"Exception when creating query lambda: %s\n" % json.loads(e.body))
+            logger_rockset.error(f"Exception when creating query lambda: %s\n" % json.loads(e.body))
 
     def query_lambda(self, workspace: str, query_lambda_name: str, embedding: list[float], results_limit: int = 3):
         try:
@@ -177,4 +177,4 @@ class AccessRockset:
             )
             return api_response
         except ApiException as e:
-            print(f"Exception when executing query lambda: %s\n" % json.loads(e.body))
+            logger_rockset.error(f"Exception when executing query lambda: %s\n" % json.loads(e.body))
